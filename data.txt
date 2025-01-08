@@ -1,0 +1,3 @@
+Информация об устройстве: {"userAgent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko\/20100101 Firefox\/133.0","platform":"Win32","language":"ru-RU","screenWidth":1920,"screenHeight":1080,"hardwareConcurrency":16}
+Реальный IP: 0.0.0.0
+Реальный IP: 213.87.86.211
