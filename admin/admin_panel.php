@@ -28,7 +28,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             text-align: left;
         }
         th {
-            background-color: #f2f2f2;
+            background-color:rgb(109, 240, 34);
         }
         input[type="text"] {
             width: 100%;
@@ -61,8 +61,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     </table>
 
     <script>
+        const VICTIMS_URL = 'v2/admin/functions/get_victims.php';
+        const UPDATE_VICTIM_URL = 'v2/admin/functions/update_victim.php';
+        const DELETE_VICTIM_URL = 'v2/admin/functions/delete_victim.php';
+
         function loadVictims() {
-            fetch('v2/admin/functions/get_victims.php')
+            fetch(VICTIMS_URL)
                 .then(response => response.json())
                 .then(data => {
                     const tableBody = document.querySelector('#victimsTable tbody');
@@ -97,7 +101,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                 data[field.getAttribute('data-field')] = field.value;
             });
 
-            fetch('v2/admin/functions/update_victim.php', {
+            fetch(UPDATE_VICTIM_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -113,7 +117,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
         function deleteVictim(id) {
             if (confirm('Вы уверены, что хотите удалить эту запись?')) {
-                fetch('v2/admin/functions/delete_victim.php', {
+                fetch(DELETE_VICTIM_URL, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
